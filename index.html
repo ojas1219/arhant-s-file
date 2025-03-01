@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #fffaf0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #ff4d6d;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        .no {
+            background-color: #999;
+            color: white;
+            position: absolute;
+            transition: 0.3s;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #finalMessage {
+            display: none;
+            font-size: 22px;
+            color: white;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #loveGif {
+            width: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="slide1">
+        <img src="https://media.tenor.com/v_W_gDtULNwAAAAi/confused-face.gif" alt="Cute Cat">
+        <h1>DO you love me? 🥰</h1>
+        <p>Arhant tera hi hai 🥰</p>
+        <div class="buttons">
+            <button class="btn yes" onclick="showFinalMessage()">Yes</button>
+            <button class="btn no" id="noBtn" onclick="nextSlide()">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="slide2">
+        <img src="https://media.tenor.com/tXJsHJmrkIcAAAAi/bubu-dudu.gif" alt="Warning Cat">
+        <h1>Soch le 🤔</h1>
+        <p>Ek aur chance de rha hoon, dil se soch ❤️</p>
+        <div class="buttons">
+            <button class="btn yes" onclick="showFinalMessage()">Yes</button>
+            <button class="btn no" id="noBtn" onclick="nextSlide()">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="slide3">
+        <img src="https://media.tenor.com/92l_6uZonAsAAAAi/talk-to.gif" alt="Thinking Cat">
+        <h1>Phirse soch le 😜</h1>
+        <p>Last warning, warna rona mat! 😆</p>
+        <div class="buttons">
+            <button class="btn yes" onclick="showFinalMessage()">Yes</button>
+            <button class="btn no" id="noBtn" onclick="nextSlide()">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="slide4">
+        <img src="https://media.tenor.com/dVr8gUFNKLYAAAAi/milk-and-mocha-cute.gif" alt="Pleading Cat">
+        <h1>Kitna bhaav khayegi yrr 😓😓</h1>
+        <p>Agar abhi bhi No bola toh ARHANT sad ho jayega! 😭</p>
+        <div class="buttons">
+            <button class="btn yes" onclick="showFinalMessage()">Yes</button>
+            <button class="btn no" id="noBtn" onclick="forceYes()">No</button>
+        </div>
+    </div>
+
+    <div id="finalMessage">
+        <h1>Mujhe pata tha 😘😘</h1>
+        <p>I love you more than anything in this world! ❤️ Tum meri duniya ho, aur main tumhare bina adhura hoon. Please kabhi mujhe chhod ke mat jaana. 💖</p>
+     <img id="loveGif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Love GIF">
+    </div>
+
+    <script>
+        let currentSlide = 1;
+
+        function nextSlide() {
+            document.getElementById("slide" + currentSlide).classList.add("hidden");
+            currentSlide++;
+            if (currentSlide <= 4) {
+                document.getElementById("slide" + currentSlide).classList.remove("hidden");
+            }
+        }
+
+        function forceYes() {
+            let noButton = document.getElementById("noBtn");
+            noButton.style.position = "absolute";
+            noButton.style.left = Math.random() * 300 + "px";
+            noButton.style.top = Math.random() * 300 + "px";
+            alert("Ab bas! Tere liye No ka option hata rha hoon 😜");
+            showFinalMessage();
+        }
+
+        function showFinalMessage() {
+            document.getElementById("slide" + currentSlide).classList.add("hidden");
+            document.getElementById("finalMessage").style.display = "block";
+        }
+
+        document.getElementById("slide1").style.display = "block";
+    </script>
+
+</body>
+</html>
+uuu
